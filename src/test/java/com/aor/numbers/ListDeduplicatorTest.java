@@ -24,4 +24,20 @@ public class ListDeduplicatorTest {
 
         Assertions.assertEquals(expected, distinct);
     }
+    @Test
+    public void deduplicate_bug_8726() {
+        class StubListSorter implements GenericListSorter {
+            @Override
+            public List<Integer> sort(List<Integer> list) {
+                return Arrays.asList(1, 2, 2, 4);
+            }
+        }
+
+        ListDeduplicator deduplicator = new ListDeduplicator();
+        StubListSorter sorter = new StubListSorter();
+        List<Integer> deduplicate = deduplicator.deduplicate(list, sorter);
+
+        Assertions.assertEquals(Arrays.asList(1,2,4), deduplicate);
+
+    }
 }
