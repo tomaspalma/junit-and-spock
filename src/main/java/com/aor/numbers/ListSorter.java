@@ -16,7 +16,7 @@ public class ListSorter {
         List<Integer> sorted = new ArrayList<>();
         for (Integer number : list)
             sorted.add(number);
-
+        //Solved
         for (int i = 0; i < sorted.size(); i++)
             for (int j = i + 1; j < sorted.size() - 1; j++)
                 if (sorted.get(i) > sorted.get(j))
