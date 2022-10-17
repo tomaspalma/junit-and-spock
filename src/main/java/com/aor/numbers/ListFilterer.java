@@ -3,25 +3,20 @@ package com.aor.numbers;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListFilterer implements GenericListFilterer {
+public class ListFilterer {
+    private GenericListFilterer filterer_;
+
     public ListFilterer(GenericListFilterer filterer) {
         filterer_ = filterer;
-    }
-
-    @Override
-    public boolean accept(Integer number) {
-       return filterer_.accept(number);
     }
 
     public List<Integer> filter(List<Integer> list) {
         List<Integer> result = new ArrayList<>();
         for(Integer i : list) {
-            if(accept(i)) {
+            if(filterer_.accept(i)) {
                 result.add(i);
             }
         }
         return result;
     }
-
-    GenericListFilterer filterer_;
 }

@@ -11,7 +11,7 @@ import java.util.List;
 
 
 public class ListFiltererTest {
-    private List<Integer> numbersList;
+    private List<Integer> numbersList = new ArrayList<>();
 
     @BeforeEach
     public void generateList() {
@@ -21,7 +21,12 @@ public class ListFiltererTest {
     }
 
     @Test
-    public void filterByDivisible() {
+    public void positiveByFilter() {
+        PositiveFilter positiveFilter = new PositiveFilter();
+        ListFilterer listFilterer = new ListFilterer(positiveFilter);
+        List<Integer> result = listFilterer.filter(numbersList);
+
+        Assertions.assertEquals(Arrays.asList(1, 2, 4, 11), result);
 
     }
 
