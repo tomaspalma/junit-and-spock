@@ -13,8 +13,8 @@ public class PositiveFilterTest {
     @Test
     public void someNegativeSomePositive() {
         PositiveFilter positiveFilter = new PositiveFilter();
-        List<Integer> testSubject = Arrays.asList(1, -4, -3, 5, 10, 11);
-        List<Boolean> expected = Arrays.asList(true, false, false, true, true, true), result = new ArrayList<>();
+        List<Integer> testSubject = Arrays.asList(1, -4, -3, 5, 10, 11, 0);
+        List<Boolean> expected = Arrays.asList(true, false, false, true, true, true, false), result = new ArrayList<>();
 
         for(Integer number : testSubject) {
             if(positiveFilter.accept(number)) {

@@ -1,5 +1,6 @@
 package com.aor.numbers;
 
+import com.sun.org.apache.xpath.internal.operations.Div;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -28,6 +29,15 @@ public class ListFiltererTest {
 
         Assertions.assertEquals(Arrays.asList(1, 2, 4, 11), result);
 
+    }
+
+    @Test
+    public void divisibleByFilter() {
+        DivisibleByFilter divisibleByFilter = new DivisibleByFilter(4);
+        ListFilterer listFilterer = new ListFilterer(divisibleByFilter);
+        List<Integer> result = listFilterer.filter(numbersList);
+
+        Assertions.assertEquals(Arrays.asList(4), result);
     }
 
 }
