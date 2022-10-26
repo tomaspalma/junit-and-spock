@@ -57,4 +57,5 @@ public class ListAggregator {
 
         return distinct.size();
     }
+
 }
